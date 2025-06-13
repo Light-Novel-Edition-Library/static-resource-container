@@ -1,0 +1,26 @@
+{
+  "name": "static-resource-container",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/ini": "^4.1.1",
+    "@types/node": "^24.0.1",
+    "@types/winston": "^2.4.4",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-async-handler": "^1.2.0",
+    "ini": "^5.0.0",
+    "winston": "^3.17.0"
+  }
+}
