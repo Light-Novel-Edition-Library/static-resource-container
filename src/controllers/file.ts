@@ -8,7 +8,7 @@ import logger from "../log";
 import { rmdirRecursive } from '../extend';
 
 export async function makeDirController(req: Request, res: Response) {
-    let dirpath = path.join('public', req.path);
+    let dirpath = path.join('public', path.normalize(decodeURI(req.path)));
 
     try {
         if (fs.existsSync(dirpath)) {
@@ -25,7 +25,7 @@ export async function makeDirController(req: Request, res: Response) {
 }
 
 export async function uploadFileController(req: Request, res: Response){
-    let filepath = path.join('public', req.path);
+    let filepath = path.join('public', path.normalize(decodeURI(req.path)));
     let dest = fs.createWriteStream(filepath, { flags: 'w' });
 
     try {
@@ -41,7 +41,7 @@ export async function uploadFileController(req: Request, res: Response){
 
 // 处理文件删除
 export async function deleteFileController(req: Request, res: Response) {
-    let filepath = path.join('public', req.path);
+    let filepath = path.join('public', path.normalize(decodeURI(req.path)));
 
     // 防止删除根目录
     if (req.path === '/') {

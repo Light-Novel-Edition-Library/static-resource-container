@@ -22,7 +22,7 @@ static-resource-container/
 ├── src/                           # 源代碼目錄
 │   ├── index.ts                   # 應用程序入口點
 │   ├── controllers/               # 控制器目錄
-│   └── middleware/                # 中間件目錄
+│   └── middlewares/                # 中間件目錄
 ├── public/                        # 靜態文件根目錄
 │   └── (用戶上傳和訪問的文件)
 ├── dist/                          # TypeScript 編譯輸出目錄
@@ -37,6 +37,11 @@ static-resource-container/
 - MKCOL 方法
 
 ## 更新记录
+
+### 1.0.1 Preview 20250614
+
+1. 修复了路径字符未经反转义的缺陷。
+2. 修复了文件控制器的路径遍历漏洞。
 
 ### 1.0.0 Preview 20250613
 

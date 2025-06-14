@@ -23,7 +23,7 @@ const log_1 = __importDefault(require("../log"));
 const extend_1 = require("../extend");
 function makeDirController(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        let dirpath = path_1.default.join('public', req.path);
+        let dirpath = path_1.default.join('public', path_1.default.normalize(decodeURI(req.path)));
         try {
             if (fs_1.default.existsSync(dirpath)) {
                 res.status(409).json({ status: 'ALREADY_EXIST' });
@@ -41,7 +41,7 @@ function makeDirController(req, res) {
 }
 function uploadFileController(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        let filepath = path_1.default.join('public', req.path);
+        let filepath = path_1.default.join('public', path_1.default.normalize(decodeURI(req.path)));
         let dest = fs_1.default.createWriteStream(filepath, { flags: 'w' });
         try {
             yield (0, promises_1.pipeline)(req, dest);
@@ -59,7 +59,7 @@ function uploadFileController(req, res) {
 // 处理文件删除
 function deleteFileController(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        let filepath = path_1.default.join('public', req.path);
+        let filepath = path_1.default.join('public', path_1.default.normalize(decodeURI(req.path)));
         // 防止删除根目录
         if (req.path === '/') {
             res.status(403).json({ status: 'FORBIDDEN' });
